@@ -268,17 +268,17 @@ namespace ISM6225_Assignment_2_Spring_2022
             try
             {
                 
-                int[] dist = arr.Distinct().ToArray();
+                int[] dist = arr.Distinct().ToArray(); //taking only distinct values from given array
                 int[] dummy = new int[501];
                 int[] lucky = new int[dist.Length];
                 int i, j;
                 j = 0;
-                for (i = 0; i < arr.Length; i++)
+                for (i = 0; i < arr.Length; i++)  //storing number of occurences of each value
                 {
                     dummy[arr[i]] += 1;
 
                 }
-                for (i = 0; i < dist.Length; i++)
+                for (i = 0; i < dist.Length; i++) //checking if number of occurences and its value are equal
                 {
                     if (dummy[dist[i]] == dist[i])
                     {
@@ -325,14 +325,14 @@ namespace ISM6225_Assignment_2_Spring_2022
         {
             try
             {
-                char[] sec = secret.ToCharArray();
-                char[] gue = guess.ToCharArray();
+                char[] sec = secret.ToCharArray(); //converting into array
+                char[] gue = guess.ToCharArray();   //converting into array
                 int count_bull = 0;
                 int count_cow = 0;
                 int i;
-                for (i = 0; i < sec.Length; i++)
+                for (i = 0; i < sec.Length; i++) //where both matches, replace with space
                 {
-                    if (sec[i] == gue[i])
+                    if (sec[i] == gue[i]) 
                     {
                         count_bull += 1;
                         sec[i] = ' ';
@@ -340,7 +340,7 @@ namespace ISM6225_Assignment_2_Spring_2022
 
                     }
                 }
-                for (i = 0; i < sec.Length; i++)
+                for (i = 0; i < sec.Length; i++)  //finding cow count from remaining letters
                 {
                     for (int j = 0; j < sec.Length; j++)
                     {
@@ -383,10 +383,10 @@ namespace ISM6225_Assignment_2_Spring_2022
         {
             try
             {
-                var result = new List<int>();
+                var result = new List<int>(); 
                 var left = 0;
                 var currentLastIndex = 0;
-
+                //checking last index of every character here and taking max
                 for (int i = 0; i < s.Length; i++)
                 {
                     currentLastIndex = Math.Max(currentLastIndex, s.LastIndexOf(s[i]));
@@ -439,12 +439,13 @@ namespace ISM6225_Assignment_2_Spring_2022
             try
             {
                 char[] alphabets = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
-                Dictionary<char, int> mydict = new Dictionary<char, int>();
+                Dictionary<char, int> mydict = new Dictionary<char, int>();    
                 int i;
                 int j = 0;
-                int k = 0;
                 int count = 1;
                 string[] output = new string[3];
+
+                //storing characters lengths and respective widths in dictionary as below
 
                 for (i = 0; i < alphabets.Length; i++)
                 {
@@ -452,7 +453,7 @@ namespace ISM6225_Assignment_2_Spring_2022
                 }
                 for (i = 0; i < s.Length; i++)
                 {
-                    j = j + mydict[s[i]];
+                    j = j + mydict[s[i]];//once j value becomes 100 condition will be checked and count is updated
                     if (j > 100)
                     {
                         count += 1;
